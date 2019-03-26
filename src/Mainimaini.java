@@ -44,47 +44,20 @@ public class Mainimaini {
 		}
 	}
 	public static void movePaddle(Scanner sc, PrintWriter out, String [] ballData) {
-		System.out.println("Ball x-Position : "+ballData[1]);
-		System.out.println("Ball y-Position : "+ballData[2]);
-		System.out.println("Ball x-Speed : "+ballData[3]);
-		System.out.println("Ball y-Speed : "+ballData[4]);
+		double xPos = Double.parseDouble(ballData[1]);
+		double yPos = Double.parseDouble(ballData[2]);
 		double xSpeed = Double.parseDouble(ballData[3]);
 		double ySpeed = Double.parseDouble(ballData[4]);
 		
-		//int moveTo = Integer.parseInt(sc.nextLine());
-		String moveTo = "0";
-		double distance = Math.abs(myPaddlePos - yPos);
-		if(distance < 50) {
-			
+		int moveToY = 0;
+		if(ySpeed < 5.0) {
+		moveToY = (int) (yPos*ySpeed /50);
+		}else if(ySpeed > 5.0) {
+			moveToY = (int) (yPos*ySpeed / 10);
+		}else if(ySpeed > 20.0) {
+			moveToY = (int) (yPos*ySpeed);
 		}
-		
-    	if(xSpeed > 0.0) {
-    		moveTo = "30";
-    	}else if(xSpeed < 0.0 ){
-    		moveTo = "-30";
-    	}else if( ySpeed > 0.0) {
-    		moveTo ="30";
-    	}else if(ySpeed < 0.0) {
-    		moveTo="-30";
-    	}else if(ySpeed == 0.0) {
-    		moveTo = "0";
-    	}else if(xSpeed == 0.0) {
-    		moveTo = "0";
-    	}
-    	/**	{
-    	}
-    		if(xSpeed == 0) {
-    			moveTo =" 0";
-    		}
-    		else if(ySpeed > 0.0 ) {
-    			moveTo = "36";
-    			
-    		}else {
-    			moveTo = "-36";
-    		}
-    	}
-    	**/
-    	out.println("move "+ moveTo);
+    	out.println("move "+ moveToY);
     	
 	}
 	

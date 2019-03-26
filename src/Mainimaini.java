@@ -55,23 +55,26 @@ public class Mainimaini {
 		
 		//int moveTo = Integer.parseInt(sc.nextLine());
 		String moveTo = "0";
-    	if(xSpeed > 0.0) {
-    		moveTo = "0";
-    	}else {
+    	if(xSpeed > 0.0 && ySpeed > 0.0) {
+    		moveTo = "12";
+    	}else if(xSpeed < 0.0 && ySpeed < 0.0){
+    		moveTo = "-30";
+    	}
+    	/**	{
+    	}
     		if(xSpeed == 0) {
     			moveTo =" 0";
     		}
-    		else if(ySpeed < 0.0 ) {
+    		else if(ySpeed > 0.0 ) {
     			moveTo = "36";
     			
     		}else {
     			moveTo = "-36";
     		}
     	}
+    	**/
+    	out.println("move "+ moveTo);
     	
-    	
-    	out.println("move"+ moveTo);
-	
 	}
 	
 

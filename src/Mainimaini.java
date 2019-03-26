@@ -51,14 +51,25 @@ public class Mainimaini {
 		double xSpeed = Double.parseDouble(ballData[3]);
 		double ySpeed = Double.parseDouble(ballData[4]);
 		
-		
-		
 		//int moveTo = Integer.parseInt(sc.nextLine());
 		String moveTo = "0";
-    	if(xSpeed > 0.0 && ySpeed > 0.0) {
-    		moveTo = "12";
-    	}else if(xSpeed < 0.0 && ySpeed < 0.0){
+		double distance = Math.abs(myPaddlePos - yPos);
+		if(distance < 50) {
+			
+		}
+		
+    	if(xSpeed > 0.0) {
+    		moveTo = "30";
+    	}else if(xSpeed < 0.0 ){
     		moveTo = "-30";
+    	}else if( ySpeed > 0.0) {
+    		moveTo ="30";
+    	}else if(ySpeed < 0.0) {
+    		moveTo="-30";
+    	}else if(ySpeed == 0.0) {
+    		moveTo = "0";
+    	}else if(xSpeed == 0.0) {
+    		moveTo = "0";
     	}
     	/**	{
     	}
